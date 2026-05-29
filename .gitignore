@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+
+# React / Vite / Next
+dist/
+build/
+.next/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# AI Models
+ai_experiments/model_registry/
+ai_experiments/fine_tuned_domain_model/
+
+# Embedding cache
+embeddings_cache.db
+
+# Uploads
+uploads/
+temp/
+tmp/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Misc
+*.bak
+*.tmp
+
+# Resume dataset
+resumes/
+
+# ATS import data / raw files
+backend/data/
+
+# AI experiment outputs
+ai_experiments/evaluation_results.json
+ai_experiments/domain_specific_evaluation/training_pairs.json
