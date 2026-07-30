@@ -32,7 +32,7 @@ export const CandidateNotesPanel: React.FC<CandidateNotesPanelProps> = ({
       <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center">
         <MessageSquare className="h-4 w-4 mr-2 text-slate-400" /> Internal Notes
       </h3>
-      
+
       <div className="flex flex-col gap-3">
         <Textarea
           placeholder="Add a note, application observations, or recruiter comments..."

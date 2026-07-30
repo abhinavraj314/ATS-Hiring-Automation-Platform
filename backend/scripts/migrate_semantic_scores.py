@@ -59,7 +59,12 @@ def migrate_candidates():
             
             # Create Contextual Match
             match_score = semantic_matcher.compute_match_score(job_emb_record.embedding, cand_emb)
-            match_signals = semantic_matcher.extract_match_signals(jd_text, candidate.raw_text or "")
+            match_signals = semantic_matcher.extract_match_signals(
+                jd_text, 
+                candidate.raw_text or "",
+                job_skills=job.required_skills,
+                candidate_skills=candidate.skills
+            )
             
             match_record = CandidateJobMatch(
                 candidate_id=candidate.id,

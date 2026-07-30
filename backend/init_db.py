@@ -10,6 +10,7 @@ from app.models.interview import Interview
 from app.models.raw_import import RawCandidateImport, RawPanelImport
 from app.models.match import CandidateJobMatch
 from app.models.embedding import CandidateEmbedding, JobEmbedding
+from app.models.feedback import RecruiterFeedbackEvent
 
 def create_database():
     """Create the database if it doesn't exist."""

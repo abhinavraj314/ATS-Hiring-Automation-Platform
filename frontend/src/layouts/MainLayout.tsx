@@ -7,12 +7,10 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="flex h-screen bg-background text-foreground">
+    <div className="flex h-screen w-full overflow-hidden bg-background text-foreground">
       <Sidebar />
-      <main className="flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-7xl">
-          {children}
-        </div>
+      <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-auto">
+        {children}
       </main>
     </div>
   );

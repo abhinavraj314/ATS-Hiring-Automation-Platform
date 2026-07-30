@@ -9,8 +9,12 @@ from app.services.semantic_matcher import semantic_matcher
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Load the semantic model on startup
-    semantic_matcher.load_model()
+    # Load the semantic model on startup with error isolation
+    try:
+        semantic_matcher.load_model()
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).error(f"Lifespan exception bypassed during model load: {e}")
     yield
     # Clean up resources if necessary
     

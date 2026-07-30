@@ -7,6 +7,7 @@ import CandidatesPage from "./pages/Candidates";
 import ShortlistedPage from "./pages/Shortlisted";
 import SettingsPage from "./pages/Settings";
 import PanelPage from "./pages/Panel";
+import ReportsPage from "./pages/Reports";
 import React from "react";
 
 // Placeholder for protected routes
@@ -46,6 +47,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ShortlistedPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/reports" 
+            element={
+              <ProtectedRoute>
+                <ReportsPage />
               </ProtectedRoute>
             } 
           />

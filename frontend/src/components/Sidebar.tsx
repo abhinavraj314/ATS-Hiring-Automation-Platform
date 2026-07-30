@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Briefcase, Users, CheckCircle, Settings, LogOut, UserCog } from "lucide-react";
+import { Briefcase, Users, CheckCircle, Settings, LogOut, UserCog, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -26,13 +26,21 @@ const Sidebar: React.FC = () => {
     { icon: Users, label: "Candidates", href: "/candidates" },
     { icon: CheckCircle, label: "Shortlisted", href: "/shortlisted" },
     { icon: UserCog, label: "Panel", href: "/panel" },
+    { icon: BarChart3, label: "Reports", href: "/reports" },
     { icon: Settings, label: "Settings", href: "/settings" },
   ];
 
   return (
-    <div className="flex h-screen w-64 flex-col border-r border-border bg-card">
+    <div className="flex h-full w-64 shrink-0 flex-col border-r border-border bg-card">
       <div className="flex h-14 items-center border-b border-border px-6">
-        <span className="text-lg font-bold tracking-tight text-foreground">ATS Platform</span>
+        <img
+          src="/ey_logo.jpg"
+          alt="EY"
+          className="-mt-1 mr-3 h-5 w-auto object-contain"
+        />
+        <span className="text-lg font-bold tracking-tight text-foreground">
+          ATS Platform
+        </span>
       </div>
       <div className="flex-1 space-y-1 p-4">
         {items.map((item) => (

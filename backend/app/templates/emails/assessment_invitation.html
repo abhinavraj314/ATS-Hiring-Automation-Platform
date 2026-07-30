@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Invitation - {{ job_title }}</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+      padding: 32px;
+      text-align: center;
+    }
+
+    .header h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .content {
+      padding: 32px;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .content h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .content p {
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    .card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card-item {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .card-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      display: block;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      color: #0f172a;
+      word-break: break-word;
+    }
+
+    .instructions {
+      background-color: #eef2ff;
+      border: 1px solid #c7d2fe;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .instructions ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .instructions li:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1>Assessment Invitation</h1>
+    </div>
+    <div class="content">
+      <h2>Hello {{ candidate_name }},</h2>
+      
+      <p>
+        Thank you for your application for the {{ job_title }} position.
+      </p>
+      <p>
+        Based on your profile, you have been shortlisted for the next stage of the recruitment process and are invited to complete an online assessment.
+      </p>
+
+      <div class="instructions">
+        <p style="margin-bottom: 16px; font-weight: 600; color: #312e81; font-size: 16px;">Assessment Information</p>
+        
+        <div style="margin-bottom: 20px; border-bottom: 1px solid #c7d2fe; padding-bottom: 16px;">
+          <div class="card-item">
+            <span class="label">Assessment Name</span>
+            <span class="value">{{ assessment_name }}</span>
+          </div>
+          <div class="card-item">
+            <span class="label">Passing Score</span>
+            <span class="value">{{ passing_score }}%</span>
+          </div>
+          <div class="card-item">
+            <span class="label">Moodle Portal URL</span>
+            <span class="value"><a href="{{ moodle_url }}" style="color: #4f46e5; text-decoration: underline;">{{ moodle_url }}</a></span>
+          </div>
+        </div>
+
+        <p style="margin-bottom: 12px; font-weight: 600; color: #312e81;">Instructions:</p>
+        <ol>
+          <li>This assessment must be completed using Safe Exam Browser (SEB).</li>
+          <li>If you do not have SEB installed, download it <a href="https://safeexambrowser.org/download_en.html" style="color: #4f46e5; text-decoration: underline; font-weight: 600;">here</a>.</li>
+          <li>Open the Moodle portal.</li>
+          <li>Log in using the credentials below.</li>
+          <li>Launch and complete the assessment through SEB.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <div class="card-item">
+          <span class="label">Moodle Portal URL</span>
+          <span class="value"><a href="{{ moodle_url }}" style="color: #4f46e5; text-decoration: underline;">{{ moodle_url }}</a></span>
+        </div>
+        <div class="card-item">
+          <span class="label">Username</span>
+          <span class="value">{{ moodle_username }}</span>
+        </div>
+        <div class="card-item">
+          <span class="label">Temporary Password</span>
+          <span class="value">{{ moodle_temp_password }}</span>
+        </div>
+      </div>
+
+      <p>Please complete the assessment at your earliest convenience. If you have any issues logging in, contact our
+        hiring team.</p>
+      <p>Best regards,<br>The Hiring Team</p>
+    </div>
+    <div class="footer">
+      This is an automated notification from our Applicant Tracking System. Please do not reply directly to this email.
+    </div>
+  </div>
+</body>
+
+</html>

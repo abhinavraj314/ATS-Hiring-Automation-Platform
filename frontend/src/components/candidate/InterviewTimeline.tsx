@@ -40,7 +40,7 @@ export const InterviewTimeline: React.FC<InterviewTimelineProps> = ({
   const latestInterview = validInterviews[validInterviews.length - 1];
   const isRejected = latestInterview?.outcome === "Fail";
   const hasActiveRound = interviews.some(i => i.status === "Scheduled");
-  
+
   const disableSchedule = hasActiveRound || isRejected;
   let scheduleTitle = "Schedule a new round";
   if (isRejected) {
@@ -74,8 +74,7 @@ export const InterviewTimeline: React.FC<InterviewTimelineProps> = ({
         </div>
       ) : interviews.length === 0 ? (
         <div className="text-center py-8 border border-dashed border-slate-200 rounded-lg bg-slate-50/50">
-          <p className="text-sm text-slate-500 font-medium">No interviews scheduled yet for this candidate.</p>
-          <p className="text-xs text-slate-400 mt-1">Click "Schedule Round" to create a manual interview round.</p>
+          <p className="text-sm text-slate-500 font-medium">No interviews scheduled yet</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -103,8 +102,8 @@ export const InterviewTimeline: React.FC<InterviewTimelineProps> = ({
                             interview.status === "Completed"
                               ? "border-green-200 bg-green-50 text-green-700"
                               : interview.status === "Cancelled"
-                              ? "border-slate-200 bg-slate-100 text-slate-500"
-                              : "border-blue-200 bg-blue-50 text-blue-700"
+                                ? "border-slate-200 bg-slate-100 text-slate-500"
+                                : "border-blue-200 bg-blue-50 text-blue-700"
                           )}
                         >
                           {interview.status}
@@ -116,8 +115,8 @@ export const InterviewTimeline: React.FC<InterviewTimelineProps> = ({
                               interview.outcome === "Pass"
                                 ? "bg-green-600"
                                 : interview.outcome === "Fail"
-                                ? "bg-red-600"
-                                : "bg-amber-500"
+                                  ? "bg-red-600"
+                                  : "bg-amber-500"
                             )}
                           >
                             {interview.outcome}

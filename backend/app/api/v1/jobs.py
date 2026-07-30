@@ -168,7 +168,12 @@ def get_recommendations(
                 jd_text += f"\n\nRequired Skills:\n{job.required_skills}"
             if job.preferred_skills:
                 jd_text += f"\n\nPreferred Skills:\n{job.preferred_skills}"
-            match_signals = semantic_matcher.extract_match_signals(jd_text, candidate.raw_text or "")
+            match_signals = semantic_matcher.extract_match_signals(
+                jd_text, 
+                candidate.raw_text or "",
+                job_skills=job.required_skills,
+                candidate_skills=candidate.skills
+            )
             
             match = CandidateJobMatch(
                 candidate_id=candidate.id,

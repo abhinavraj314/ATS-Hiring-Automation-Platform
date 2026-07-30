@@ -12,6 +12,8 @@ api.interceptors.request.use((config) => {
   if (token && token !== "null" && token !== "undefined") {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  // Add client timezone offset in minutes (e.g., -330 for UTC+5:30)
+  config.headers["X-Timezone-Offset"] = String(new Date().getTimezoneOffset());
   return config;
 });
 

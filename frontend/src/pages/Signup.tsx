@@ -51,7 +51,6 @@ const SignupPage: React.FC = () => {
               <Input
                 id="fullName"
                 type="text"
-                placeholder="John Doe"
                 value={fullName}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFullName(e.target.value)}
                 required
