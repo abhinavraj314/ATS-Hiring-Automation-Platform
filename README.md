@@ -219,17 +219,38 @@ http://localhost:5173
 
 ## Screenshots
 
-Include screenshots of:
+### Job Management
 
-- Dashboard
-- Job Management
-- Candidate Management
-- Candidate Details
-- Interview Scheduling
-- Moodle Assessment Assignment
-- Assessment Results
+Create and manage job postings, define required skills, and view active positions.
+
+![Job Management](screenshots/jobs.png)
 
 ---
+
+### Candidate Management
+
+Upload resumes, review AI-generated candidate scores, and manage applicants throughout the hiring process.
+
+![Candidate Management](screenshots/candidates.png)
+
+---
+
+### Panel Management
+
+Manage interview panel members, assign interviewers, and organize interview schedules.
+
+![Panel Management](screenshots/panel-management.png)
+
+---
+
+### Moodle Assessment Integration
+
+Assign technical assessments through Moodle and synchronize assessment results within the ATS.
+
+![Moodle Assessment Integration](screenshots/moodle-assessments.png)
+
+---
+
 
 ## Notes
 
