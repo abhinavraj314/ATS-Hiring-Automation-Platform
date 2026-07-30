@@ -1,0 +1,48 @@
+services:
+  moodle_db:
+    image: mariadb:11.4
+    container_name: moodle_db
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: moodle
+      MARIADB_USER: moodle
+      MARIADB_PASSWORD: moodlepass123
+    volumes:
+      - moodle_db_data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      timeout: 20s
+      retries: 10
+      start_period: 40s
+
+  moodle:
+    image: elestio/moodle:latest
+    container_name: moodle_app
+    depends_on:
+      moodle_db:
+        condition: service_healthy
+    environment:
+      MOODLE_DATABASE_TYPE: mysqli
+      MOODLE_DATABASE_HOST: moodle_db
+      MOODLE_DATABASE_NAME: moodle
+      MOODLE_DATABASE_USER: moodle
+      MOODLE_DATABASE_PASSWORD: moodlepass123
+      MOODLE_ADMIN_USER: admin
+      MOODLE_ADMIN_PASSWORD: Admin@123456
+      MOODLE_ADMIN_EMAIL: admin@localhost.com
+      MOODLE_SITE_NAME: ATS Assessments
+      MOODLE_LANGUAGE: en
+      adminuser: admin
+      adminpass: Admin@123456
+    ports:
+      - "8080:80"
+    volumes:
+      - moodle_app_data:/var/www/html
+      - moodle_app_moodledata:/var/moodledata
+    restart: unless-stopped
+
+volumes:
+  moodle_db_data:
+  moodle_app_data:
+  moodle_app_moodledata:
